@@ -1,25 +1,26 @@
-Expectimax Search for 2048
-=========
+# Expectimax Search for 2048
 
-Implement a game AI for the 2048 game based on expectimax search. 
-The base game engine uses code from [here](https://gist.github.com/lewisjdeane/752eeba4635b479f8bb2). 
+This project implements an AI agent for the 2048 game using the Expectimax algorithm. The AI agent is designed to make optimal moves by evaluating possible future game states.
 
-Task To Complete
------
-Model the AI player as a max player, and the computer as a chance player (picking a random open spot to place a 2-tile). Implement a depth-3 game tree and the expectimax algorithm to compute decisions for the AI player. Use the score returned by the game engine as the evaluation function value at the leaf nodes of the depth-3 game trees. 
+## Features
 
-You can play the game manually using the arrow keys. Pressing 'Enter' will let the AI play, and pressing 'Enter' again will stop the AI player. Read the game engine code from `game.py` and see how it returns the game state, and evaluate its score from an arbitrary game state after an arbitrary player move. 
+- **AI Agent**: Uses the Expectimax algorithm to determine the best move.
+- **Game Engine**: Handles the game mechanics, including tile movements, merging, and random tile placement.
+- **User Interface**: Allows manual play using arrow keys and toggles for AI play.
+- **Testing**: Includes tests to verify the AI's performance and correctness.
 
-A depth-3 game tree means the tree should have the following levels: 
+## Installation
 
-- root: player
-- level 1: computer 
-- level 2: player
-- level 3: terminal with payoff (note that we say "terminal" to mean the leaf nodes in the shallow game tree, not the termination of the game itself)
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/WeiHanTu/expectimax-main.git
+    cd expectimax-main
+    ```
 
-This tree represents all the game states of a player-computer-player sequence (the player makes a move, the computer places a tile, and then the player makes another move, and then evaluate the score) from the current state. Compute the expectimax values of all the nodes in the game tree, and return the optimal move for the player. In the starter code, the AI just returns a random move.
-
-If you have implemented the AI correctly, your depth-3 search should almost always reach 512 tiles and a score over 5000 quite often, as shown in the movie file. 
+2. Install the required dependencies:
+    ```sh
+    pip install -r requirements.txt
+    ```
 
 Usage
 -----
@@ -28,16 +29,37 @@ To run the program:
     python main.py
 ```
 
-The file 'test.py' contains code for testing that with the depth-3 tree and the expectimax algorithm, your AI returns the right directions and values on 15 test states. Run the tests using:
-```
-    python main.py -t 1
-```
-
-Once your program is running, here are a few keyboard options available in-game:
+## Keyboard Controls
+- Arrow Keys: Move tiles manually.
+- Enter: Toggle AI play.
 - 'r': restart the game
 - 'u': undo a move
 - '3'-'7': change board size
 - 'g': toggle grayscale
 - 'e': switch to extra credit
 
-NOTE: For grading, we will run tests in the same way on other test states and see if your depth-3 tree and expectimax values are computed correctly. 
+## Running Tests
+To run the tests:
+```
+    python main.py -t 1
+```
+
+## AI Implementation
+The AI agent is implemented using the Expectimax algorithm. The AI evaluates possible future game states up to a specified depth and chooses the move that maximizes the expected score.  
+AI Classes and Functions
+
+## AI Classes and Functions
+- Node: Represents a node in the game tree. 
+- AI: Implements the AI agent to determine the next move using Expectimax. 
+- run_experiment: Runs an experiment to evaluate the AI's performance. 
+- plot_comparison: Plots a comparison of the AI's performance using different depths. 
+- plot_advanced_comparison: Plots a comparison of the AI's performance using different evaluation functions.
+
+## Extra Credit
+The extra credit mode uses a custom evaluation function that considers multiple strategic factors, such as the number of empty cells, monotonicity, smoothness, corner preference, and merge potential.
+
+## References
+The base game engine uses code from here.  
+
+## License
+This project is licensed under the MIT License.
