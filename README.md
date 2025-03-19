@@ -58,8 +58,5 @@ AI Classes and Functions
 ## Extra Credit
 The extra credit mode uses a custom evaluation function that considers multiple strategic factors, such as the number of empty cells, monotonicity, smoothness, corner preference, and merge potential.
 
-## References
-The base game engine uses code from here.  
-
 ## License
 This project is licensed under the MIT License.
